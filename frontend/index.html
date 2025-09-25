@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Administração | Gestão de Serviços</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Admin de Serviços</h1>
+            <nav>
+                <a href="#servicos" class="nav-link active">Gerenciar Serviços</a>
+                <a href="#graficos" class="nav-link">Gráficos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="servicos" class="content-section active">
+            <h2>Serviços Realizados</h2>
+            <button class="btn-add">Adicionar Novo Serviço</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Data Recebimento</th>
+                        <th>Data Entrega</th>
+                        <th>Custo (R$)</th>
+                        <th>Valor Cobrado (R$)</th>
+                        <th>Lucro (R$)</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Desenvolvimento de website institucional</td>
+                        <td>2025-08-01</td>
+                        <td>2025-09-15</td>
+                        <td>R$ 1.800,00</td>
+                        <td>R$ 5.500,00</td>
+                        <td>R$ 3.700,00</td>
+                        <td class="acoes">
+                            <button class="btn-edit">Editar</button>
+                            <button class="btn-delete">Excluir</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Manutenção de sistema legado</td>
+                        <td>2025-09-10</td>
+                        <td>2025-09-22</td>
+                        <td>R$ 1.000,00</td>
+                        <td>R$ 2.800,00</td>
+                        <td>R$ 1.800,00</td>
+                        <td class="acoes">
+                            <button class="btn-edit">Editar</button>
+                            <button class="btn-delete">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="graficos" class="content-section">
+            <h2>Análise Financeira</h2>
+            <div class="charts-container">
+                <div class="chart-box">
+                    <h3>Panorama Financeiro Geral (por Mês)</h3>
+                    <canvas id="panoramaGeralChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Lucro por Serviço</h3>
+                    <canvas id="lucroServicoChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="addServiceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Adicionar Novo Serviço</h2>
+            <form id="addServiceForm">
+                <div class="form-group">
+                    <label for="descricao">Descrição do Serviço</label>
+                    <input type="text" id="descricao" required>
+                </div>
+                <div class="form-group">
+                    <label for="dataRecebimento">Data de Recebimento</label>
+                    <input type="date" id="dataRecebimento" required>
+                </div>
+                <div class="form-group">
+                    <label for="dataEntrega">Data de Entrega</label>
+                    <input type="date" id="dataEntrega" required>
+                </div>
+                <div class="form-group">
+                    <label for="custo">Custo do Serviço (R$)</label>
+                    <input type="number" id="custo" step="0.01" placeholder="Ex: 1800.00" required>
+                </div>
+                <div class="form-group">
+                    <label for="valorCobrado">Valor Cobrado (R$)</label>
+                    <input type="number" id="valorCobrado" step="0.01" placeholder="Ex: 5500.00" required>
+                </div>
+                <button type="submit" class="btn-add">Salvar Serviço</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
